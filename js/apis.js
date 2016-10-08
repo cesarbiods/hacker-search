@@ -48,13 +48,14 @@ function processResponse(apiName, response) {
         case "stack-overflow":
             content = processStackOverFlowResponse(response);
             break;
-        case "git-hub":
+        case "github-repositories":
             content = processGitHubResponse(response);
             break;
-        case "git-hub-issues":
+        case "github-issues":
             content = processGitHubIssuesResponse(response);
             break;
     }
+    return content;
 }
 
 function processStackOverFlowResponse(response) {
@@ -92,4 +93,3 @@ function processGitHubIssuesResponse(response)    {
       }
       return articleList;
 }
-
