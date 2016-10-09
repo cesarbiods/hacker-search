@@ -69,7 +69,11 @@ function processResponse(apiName, response) {
 
 function processStackOverFlowResponse(response) {
     var articleList = [];
-    for (i = 0; i < 10; i++) {
+    var items = response.items.length;
+    if (items > 10) {
+        items = 10;
+    }
+    for (i = 0; i < items; i++) {
         var item = response.items[i];
         articleList.push({
             link: item.link,
@@ -88,7 +92,6 @@ function processGitHubResponse(response)    {
     }
     for (i = 0; i < items; i++)    {
         var item = response.items[i];
-        console.log(item);
         articleList.push({
             link: item.html_url,
             title: (((item.name + ": " + item.description).length > 70) ? ((item.name + ": " + item.description).substring(0, 70) + "...") : (item.name + ": " + item.description))
