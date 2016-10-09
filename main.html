@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */
     .navbar {
@@ -37,11 +38,12 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <form class="form-inline">Get answers:
-    <input type="email" class="form-control" size="50" placeholder="Ex: java">
-    <input type="email" class="form-control" size="50" placeholder="arraylists">
-    <a class="btn btn-danger" href="http://localhost:8008/search.html" role="button">Search</a>
-  </form>
+  <form action= "search.html" class="form-inline">
+      Get answers:
+      <input type="text" class="form-control" size="50" placeholder="Ex: java"/>
+      <input type="text" class="form-control" size="50" placeholder="arraylists"/>
+      <input type="submit" value="Search" class="btn btn-danger"/>
+      </form>
 </footer>
 
 </body>
