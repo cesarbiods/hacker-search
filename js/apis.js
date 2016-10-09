@@ -52,11 +52,12 @@ function generateGitHubIssuesLink (language, query) {
 
 function processResponse(apiName, response) {
     var content;
+    var temp;
     switch (apiName) {
         case "stack-overflow":
             content = processStackOverFlowResponse(response);
             break;
-        case "github-repositories":
+        case "github-repositories": 
             content = processGitHubResponse(response);
             break;
         case "github-issues":
@@ -72,7 +73,7 @@ function processStackOverFlowResponse(response) {
         var item = response.items[i];
         articleList.push({
             link: item.link,
-            title: item.title
+            title: ((item.title.length > 70) ? (item.title.substring(0, 70) + "...") : item.title)
         });
     }
     return articleList;
@@ -80,11 +81,13 @@ function processStackOverFlowResponse(response) {
 
 function processGitHubResponse(response)    {
     var articleList = [];
+    var temp;
     for (i = 0; i < 10; i++)    {
         var item = response.items[i];
+        console.log(item);
         articleList.push({
-            link: item.html_url,            
-            title: item.name + ": " + item.description
+            link: item.html_url,
+            title: (((item.name + ": " + item.description).length > 70) ? ((item.name + ": " + item.description).substring(0, 70) + "...") : (item.name + ": " + item.description))
         });
     }
     return articleList;
@@ -96,7 +99,7 @@ function processGitHubIssuesResponse(response)    {
             var item = response.items[i];
             articleList.push({
                 link: item.html_url,
-                title: item.title
+                title: ((item.title.length > 70) ? (item.title.substring(0, 70) + "...") : item.title)
             });
       }
       return articleList;
