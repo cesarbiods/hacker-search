@@ -47,8 +47,8 @@
 <footer class="container-fluid text-center">
   <form action= "search.html" class="form-inline">
       Get answers:
-      <input type="text" class="form-control" size="50" placeholder="Ex: java"/>
-      <input type="text" class="form-control" size="50" placeholder="arraylists"/>
+      <input type="text" class="form-control" size="50" name="language" placeholder="Ex: java"/>
+      <input type="text" class="form-control" size="50" name="query" placeholder="arraylists"/>
       <input type="submit" value="Search" class="btn btn-danger"/>
       </form>
 </footer>
@@ -84,7 +84,7 @@
     <div id="box1" class="col-sm-6">
       <div class="panel panel-primary">
         <div class="panel-heading">GitHub Repositories</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div id="listBox2" class="panel-body"></div>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@
     <div id="box2" class="col-sm-6">
       <div class="panel panel-primary">
         <div class="panel-heading">GitHub Issues</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div id="listBox3" class="panel-body"></div>
       </div>
     </div>
     <div id="box3" class="col-sm-6">
