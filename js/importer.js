@@ -50,6 +50,8 @@ $.getScript('js/apis.js', function(){
         var api = apis[j];
         var id = "listBox" + (j + 1);
         var queryResults = queryAPI(api, language, query);
-        generateBox(queryResults, api);
+        if (queryResults.length > 0) {
+            generateBox(queryResults, api);
+        }
     }
 });

@@ -82,7 +82,11 @@ function processStackOverFlowResponse(response) {
 function processGitHubResponse(response)    {
     var articleList = [];
     var temp;
-    for (i = 0; i < 10; i++)    {
+    var items = response.total_count;
+    if (items > 10) {
+        items = 10;
+    }
+    for (i = 0; i < items; i++)    {
         var item = response.items[i];
         console.log(item);
         articleList.push({
@@ -94,13 +98,17 @@ function processGitHubResponse(response)    {
 }
 
 function processGitHubIssuesResponse(response)    {
-        var articleList = [];
-        for (i = 0; i < 10; i++)    {
-            var item = response.items[i];
-            articleList.push({
-                link: item.html_url,
-                title: ((item.title.length > 70) ? (item.title.substring(0, 70) + "...") : item.title)
-            });
-      }
-      return articleList;
+    var articleList = [];
+    var items = response.total_count;
+    if (items > 10) {
+        items = 10;
+    }
+    for (i = 0; i < items; i++)    {
+        var item = response.items[i];
+        articleList.push({
+            link: item.html_url,
+            title: ((item.title.length > 70) ? (item.title.substring(0, 70) + "...") : item.title)
+        });
+    }
+    return articleList;
 }
